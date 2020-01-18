@@ -1,6 +1,15 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Uploader from './uploader'
+
+
+const fetchUsers = function(){
+  fetch('/api/v1/users')
+  .then((res)=> res.json())
+  .then((res)=> console.log(res))
+  .catch((err)=> console.log('Error In Api', err));
+}
 
 function App() {
   return (
@@ -18,6 +27,8 @@ function App() {
         >
           Learn React
         </a>
+        <button onClick={fetchUsers}>Load Users</button>
+        <Uploader />
       </header>
     </div>
   );
