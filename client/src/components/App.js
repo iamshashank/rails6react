@@ -12,7 +12,7 @@ import MainProfile from './main_profile';
 const useStyles = makeStyles((theme) => ({
   appDivider: {
     backgroundColor: 'rgba(255, 255, 255, 0.34) !important',
-    top: '45.6%',
+    top: '36.2%',
     [theme.breakpoints.up('md')]: { // eslint-disable-line no-useless-computed-key
       top: '48.4%'
     },

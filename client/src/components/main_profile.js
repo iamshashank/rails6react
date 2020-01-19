@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     }    
   }, 
   media: {
-    height: 300,
+    height: 200,
     [theme.breakpoints.up('md')]: { // eslint-disable-line no-useless-computed-key
       height: 350
     },
@@ -49,11 +49,11 @@ const useStyles = makeStyles((theme) => ({
     } 
   },
   large: {
-    width: 190,
-    height: 190,
+    width: 100,
+    height: 100,
     position: 'absolute',
     top: 56,
-    left: 25,
+    left: 16,
     borderRadius: 6,
     [theme.breakpoints.up('md')]: { // eslint-disable-line no-useless-computed-key
       top: 66,
