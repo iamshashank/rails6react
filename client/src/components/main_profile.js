@@ -21,10 +21,13 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
 const useStyles = makeStyles({
   card: {
-    maxWidth: '100%'
+    height: 500,
+    maxHeight: 600,
+    margin: 'auto',
+    maxWidth: 600
   },
   media: {
-    height: 200,
+    height: 300
   },
   large: {
     width: 110,

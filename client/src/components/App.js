@@ -14,12 +14,12 @@ function App() {
     <Container className="App-header" style={{ display: 'flex', flexDirection: 'column',
     justifyContent: 'center', paddingTop: 24, paddingBottom: 24}} maxWidth={false} >
       <Grid container spacing={4}>
-        <Grid key={1} item xs={12} md={4} style={{alignSelf: 'center'}}>
+        <Grid key={1} item xs={12} style={{alignSelf: 'center'}}>
           <MainProfile />
         </Grid>
-        <Grid key={2} item xs={12} md={8}>
+        {/* <Grid key={2} item xs={12} md={8}>
           <SecondaryProfile />
-        </Grid>
+        </Grid> */}
       </Grid>
     </Container>
   );
