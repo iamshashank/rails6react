@@ -30,11 +30,10 @@ export default function SecondaryProfile() {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Lizard
+            To Do
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
+            No sure how to design this section yet.
           </Typography>
         </CardContent>
       </CardActionArea>

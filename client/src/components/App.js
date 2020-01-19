@@ -12,7 +12,7 @@ import SecondaryProfile from './secondary_profile'
 function App() {
   return (
     <Container className="App-header" style={{ display: 'flex', flexDirection: 'column',
-    justifyContent: 'center'}} maxWidth={false}>
+    justifyContent: 'center', paddingTop: 24, paddingBottom: 24}} maxWidth={false} >
       <Grid container spacing={4}>
         <Grid key={1} item xs={12} md={4} style={{alignSelf: 'center'}}>
           <MainProfile />
