@@ -19,29 +19,57 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   card: {
-    height: 500,
-    maxHeight: 600,
     margin: 'auto',
-    maxWidth: 600
-  },
+    width: '100%',
+    [theme.breakpoints.up('sm')]: { // eslint-disable-line no-useless-computed-key
+      width: 600
+    },
+    [theme.breakpoints.up('md')]: { // eslint-disable-line no-useless-computed-key
+      width: 700
+    }    
+  }, 
   media: {
-    height: 300
+    height: 300,
+    [theme.breakpoints.up('md')]: { // eslint-disable-line no-useless-computed-key
+      height: 350
+    },
+    [theme.breakpoints.up('lg')]: { // eslint-disable-line no-useless-computed-key
+      height: 400
+    }      
+  },
+  gitRepoInfo: {
+    height: 150,
+    [theme.breakpoints.up('md')]: { // eslint-disable-line no-useless-computed-key
+      height: 150
+    },
+    [theme.breakpoints.up('lg')]: { // eslint-disable-line no-useless-computed-key
+      height: 170
+    } 
   },
   large: {
-    width: 110,
-    height: 110,
+    width: 190,
+    height: 190,
     position: 'absolute',
-    top: 45,
+    top: 56,
     left: 25,
-    borderRadius: 6      
+    borderRadius: 6,
+    [theme.breakpoints.up('md')]: { // eslint-disable-line no-useless-computed-key
+      top: 66,
+      left: 33,
+      width: 215,
+      height: 215
+    },
+    [theme.breakpoints.up('lg')]: { // eslint-disable-line no-useless-computed-key
+      top: 90
+    }       
   },
   actionClass: {
     flexDirection: 'column',
     alignItems: 'center'
   }
-});
+}));
 
 export default function MainProfile() {
   const classes = useStyles();
@@ -69,6 +97,14 @@ export default function MainProfile() {
       <CardActions className={classes.actionClass}>
         <CardActionIcons />
       </CardActions>
+      <CardContent className={classes.gitRepoInfo}>
+        <Typography gutterBottom variant="h5" component="h2">
+          Shashank Yadav
+        </Typography>
+        <Typography variant="body2" color="textSecondary" component="p">
+          I am a Ruby on Rails/JS developer by profession. Passionate about computer harware and gaming in general.
+        </Typography>
+      </CardContent>      
     </Card>
   );
 }
