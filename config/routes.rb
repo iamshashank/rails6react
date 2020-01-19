@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :documents
       resources :users
+      get '/total_repos', to: "github#total_repos"
     end
   end
   get '*path', to: 'application#frontend_index_html', constraints: lambda { |request| !request.xhr? && request.format.html? }  
