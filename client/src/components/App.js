@@ -30,7 +30,7 @@ function App() {
     <Container className="App-header" style={{ display: 'flex', flexDirection: 'column',
     justifyContent: 'center', paddingTop: 24, paddingBottom: 24}} maxWidth={false} >
       <Grid container spacing={4}>
-        <Divider absolute={true} light={true} className={classes.appDivider} />
+        {/* <Divider absolute={true} light={true} className={classes.appDivider} /> */}
         <Grid key={1} item xs={12} style={{alignSelf: 'center'}}>
           <MainProfile />
         </Grid>

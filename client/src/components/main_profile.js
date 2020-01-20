@@ -9,20 +9,26 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardActionIcons from './card_action_icons'
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
-import GitHubIcon from '@material-ui/icons/GitHub';
-import YouTubeIcon from '@material-ui/icons/YouTube';
-import EmailIcon from '@material-ui/icons/Email';
-import TwitterIcon from '@material-ui/icons/Twitter';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import Divider from '@material-ui/core/Divider';
+import GithubInfo from './github_info';
+
 
 
 const useStyles = makeStyles((theme) => ({
+  appDivider: {
+    backgroundColor: 'rgba(255, 255, 255, 0.34) !important',
+    bottom: 0,
+    position: 'absolute',
+    width: '140%',
+    marginLeft: '-20%',
+    marginRight: '-20%'  
+  },  
   card: {
     margin: 'auto',
     width: '100%',
+    overflow: 'unset',
     [theme.breakpoints.up('sm')]: { // eslint-disable-line no-useless-computed-key
       width: 600
     },
@@ -84,6 +90,7 @@ export default function MainProfile() {
           title="Shashank">
           <Avatar variant="square" alt="Shashank Yadav" src={myImage} className={classes.large }>
           </Avatar>
+          <Divider absolute={true} light={true} className={classes.appDivider} />
         </CardMedia>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
@@ -98,12 +105,7 @@ export default function MainProfile() {
         <CardActionIcons />
       </CardActions>
       <CardContent className={classes.gitRepoInfo}>
-        <Typography gutterBottom variant="h5" component="h2">
-          Shashank Yadav
-        </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          I am a Ruby on Rails/JS developer by profession. Passionate about computer harware and gaming in general.
-        </Typography>
+        <GithubInfo />
       </CardContent>      
     </Card>
   );
