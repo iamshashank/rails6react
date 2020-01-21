@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -49,44 +49,71 @@ function LinkTab(props) {
   );
 }
 
-const useStyles = makeStyles(theme => ({
+// const useStyles = makeStyles(theme => ({
+//   root: {
+//     flexGrow: 1,
+//     backgroundColor: theme.palette.background.paper,
+//   },
+// }));
+const useStyles = theme => ({
   root: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.paper,
   },
-}));
+});
 
-export default function GithubInfo() {
-  const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+class GithubInfo extends React.Component {
+  constructor(props) {
+    super(props);
+    // this.classes = useStyles();
+    this.state = {
+      value: 0
+    };    
+    // This binding is necessary to make `this` work in the callback
+    this.handleChange = this.handleChange.bind(this);
+  }
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+  handleChange(event, newValue){
+    this.setState({value: newValue});
+  }
 
-  return (
-    <div className={classes.root}>
-      <Paper position="static">
-        <Tabs
-          variant="fullWidth"
-          value={value}
-          onChange={handleChange}
-          aria-label="nav tabs example"
-        >
-          <LinkTab label="Repos" href="/" {...a11yProps(0)} />
-          <LinkTab label="Organizations" href="/" {...a11yProps(1)} />
-          {/* <LinkTab label="Page Three" href="/" {...a11yProps(2)} /> */}
-        </Tabs>
-      </Paper>
-      <TabPanel value={value} index={0}>
-        Page One
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        Page Two
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        Page Three
-      </TabPanel>
-    </div>
-  );
+  componentDidMount() {
+    fetch('/api/v1/total_repos')
+    .then(r => r.json())
+    .then(r => console.log(r))
+    .catch(e => console.log(e))
+  }
+  
+  render(){
+
+    const { classes } = this.props;
+    return (
+      
+      <div className={classes.root}>
+        <Paper position="static">
+          <Tabs
+            variant="fullWidth"
+            value={this.state.value}
+            onChange={this.handleChange}
+            aria-label="nav tabs example"
+          >
+            <LinkTab label="Repos" href="/" {...a11yProps(0)} />
+            <LinkTab label="Organizations" href="/" {...a11yProps(1)} />
+            {/* <LinkTab label="Page Three" href="/" {...a11yProps(2)} /> */}
+          </Tabs>
+        </Paper>
+        <TabPanel value={this.state.value} index={0}>
+          Page One
+        </TabPanel>
+        <TabPanel value={this.state.value} index={1}>
+          Page Two
+        </TabPanel>
+        {/* <TabPanel value={value} index={2}>
+          Page Three
+        </TabPanel> */}
+      </div>
+    );
+  }
+
 }
+export default withStyles(useStyles)(GithubInfo)

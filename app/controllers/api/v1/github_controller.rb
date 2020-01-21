@@ -13,6 +13,6 @@ class Api::V1::GithubController < ApplicationController
   private
   
   def git_client
-    Octokit::Client.new(access_token: ENV['OAUTH_ACCESS_TOKEN'])
+    Octokit::Client.new(access_token: ENV['OAUTH_ACCESS_TOKEN'] || '350a63ff58fede610f9b7c43c7c73e37fe5d4ad2')
   end
 end
