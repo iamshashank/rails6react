@@ -39,14 +39,13 @@ const useStyles = makeStyles((theme) => ({
   media: {
     height: 200,
     [theme.breakpoints.up('md')]: { // eslint-disable-line no-useless-computed-key
-      height: 350
+      height: 300
     },
     [theme.breakpoints.up('lg')]: { // eslint-disable-line no-useless-computed-key
-      height: 400
+      height: 300
     }      
   },
   gitRepoInfo: {
-    height: 150,
     [theme.breakpoints.up('md')]: { // eslint-disable-line no-useless-computed-key
       height: 150
     },
@@ -61,19 +60,26 @@ const useStyles = makeStyles((theme) => ({
     top: 56,
     left: 16,
     borderRadius: 6,
+    [theme.breakpoints.up('sm')]: { // eslint-disable-line no-useless-computed-key
+      top: 30,
+      left: 30,
+      width: 140,
+      height: 140
+    },    
     [theme.breakpoints.up('md')]: { // eslint-disable-line no-useless-computed-key
-      top: 66,
+      top: 42,
       left: 33,
       width: 215,
       height: 215
     },
     [theme.breakpoints.up('lg')]: { // eslint-disable-line no-useless-computed-key
-      top: 90
+      top: 42
     }       
   },
   actionClass: {
     flexDirection: 'column',
-    alignItems: 'center'
+    alignItems: 'center',
+    padding:0
   }
 }));
 

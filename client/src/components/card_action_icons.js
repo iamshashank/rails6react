@@ -20,21 +20,31 @@ export default function CardActionIcons() {
 
   return (
     <div className={ classes.socailIconHolder}>
+      <a target='blank' href='https://github.com/iamshashank'>
         <IconButton aria-label="delete">
           <GitHubIcon />
         </IconButton>
+      </a>
+      <a target='blank' href='https://www.youtube.com/channel/UCrb1Jn4MLKzHcCffUk4Z3SA?view_as=subscriber'>
         <IconButton aria-label="delete">
           <YouTubeIcon />
         </IconButton>
+      </a>
+      <a target='blank' href='https://www.linkedin.com/in/iamshashankio/'>
         <IconButton aria-label="delete">
           <LinkedInIcon />
         </IconButton>
+      </a>
+      <a target='blank' href='https://twitter.com/shashank0x1'>
         <IconButton aria-label="delete">
           <TwitterIcon />
         </IconButton>
+      </a>
+      <a target='blank' href='mailto:shashank0x1@gmail.com?Subject=Hi%20Shashank'>
         <IconButton aria-label="delete">
           <EmailIcon />
-        </IconButton>                                
+        </IconButton>
+      </a>
     </div>
   );
 }
