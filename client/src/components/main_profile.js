@@ -65,13 +65,13 @@ const useStyles = makeStyles((theme) => ({
       height: 100
     },    
     [theme.breakpoints.up('md')]: { // eslint-disable-line no-useless-computed-key
-      width: 150,
-      height: 150
+      width: 100,
+      height: 100
     },
-    // [theme.breakpoints.up('lg')]: { // eslint-disable-line no-useless-computed-key
-    //   height: 150,
-    //   width: 150
-    // }       
+    [theme.breakpoints.up('lg')]: { // eslint-disable-line no-useless-computed-key
+      height: 150,
+      width: 150
+    }       
   },
   actionClass: {
     flexDirection: 'column',

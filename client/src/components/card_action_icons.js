@@ -32,13 +32,13 @@ export default function CardActionIcons() {
       </a>
       <a target='blank' href="https://twitter.com/shashank0x1?ref_src=twsrc%5Etfw" className="twitter-follow-button" data-show-count="false">
         <IconButton aria-label="delete">
-          <LinkedInIcon />
+          <TwitterIcon />
         </IconButton>
       </a>
       <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
-      <a target='blank' href='https://twitter.com/shashank0x1'>
+      <a target='blank' href='https://www.linkedin.com/in/iamshashankio/'>
         <IconButton aria-label="delete">
-          <TwitterIcon />
+          <LinkedInIcon />
         </IconButton>
       </a>
       <a target='blank' href='mailto:shashank0x1@gmail.com?Subject=Hi%20Shashank'>
