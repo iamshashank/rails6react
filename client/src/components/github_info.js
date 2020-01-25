@@ -72,9 +72,9 @@ const useStyles = theme => ({
   },
   rootList: {
     width: '100%',
-    maxHeight: 162,
+    maxHeight: 172,
     padding: 0,
-    overflow: 'scroll'    
+    overflowY: 'scroll'    
   },
   inline: {
     display: 'inline',
@@ -120,28 +120,56 @@ class GithubInfo extends React.Component {
 
   repoListItem(repo, classes, key){
     return (
-      <ListItem key={key} alignItems="flex-start" button={true} divider={true} style={{width: '100%'}}>
-      <ListItemAvatar>
-        <Avatar alt={repo.name} src="/static/images/avatar/1.jpg" />
-      </ListItemAvatar>
-      <ListItemText
-        primary={repo.name}
-        secondary={
-          <React.Fragment>
-            <Typography
-              component="span"
-              variant="body2"
-              className={classes.inline}
-              color="textPrimary"
-            >
-            {`${repo.description} `}
-            </Typography>
-            <a target='blank' href={repo.html_url}>goto repo</a>
-          </React.Fragment>
-        }
-      />
-      </ListItem>
+      <a target='blank' href={repo.html_url} style={{textDecoration: 'none'}}>
+        <ListItem key={key} alignItems="flex-start" button={true} divider={true} style={{width: '100%'}}>
+        <ListItemAvatar>
+          <Avatar variant='rounded' alt={repo.name} src="/static/images/avatar/1.jpg" />
+        </ListItemAvatar>
+        <ListItemText
+          primary={repo.name}
+          secondary={
+            <React.Fragment>
+              <Typography
+                component="span"
+                variant="body2"
+                className={classes.inline}
+                color="textPrimary"
+              >
+              {`${repo.description} `}
+              </Typography>
+            </React.Fragment>
+          }
+        />
+        </ListItem>
+      </a>
     );
+  }
+
+  organizationItem(org, classes, key){
+    return (
+      <a key={key} target='blank' href={org.url} style={{textDecoration: 'none'}}>
+        <ListItem alignItems="flex-start" button={true} divider={true} style={{width: '100%'}}>
+          <ListItemAvatar>
+            <Avatar variant='rounded' alt={org.avatar_url} src={org.avatar_url} />
+          </ListItemAvatar>
+          <ListItemText
+            primary={org.login}
+            secondary={
+              <React.Fragment>
+                <Typography
+                  component="span"
+                  variant="body2"
+                  className={classes.inline}
+                  color="textPrimary"
+                >
+                {`${org.description} `}
+                </Typography>
+              </React.Fragment>
+            }
+          />
+        </ListItem>
+      </a>
+    );    
   }
 
   generateRepoList(state, classes) {
@@ -150,6 +178,12 @@ class GithubInfo extends React.Component {
       return state.data.last_5_repo.map((repo, index)=> this.repoListItem(repo, classes, index));
     } 
   }  
+
+  generateOrganizationList(state, classes) {
+    if (state.dataLoaded){
+      return state.data.organizations.map((org, index)=> this.organizationItem(org, classes, index));
+    } 
+  }
   
   render(){
 
@@ -176,7 +210,9 @@ class GithubInfo extends React.Component {
 
         </TabPanel>
         <TabPanel value={this.state.value} index={1}>
-          Page Two
+          <List className={classes.root}>
+          {this.generateOrganizationList(this.state, classes)}
+          </List>
         </TabPanel>
         {/* <TabPanel value={value} index={2}>
           Page Three
