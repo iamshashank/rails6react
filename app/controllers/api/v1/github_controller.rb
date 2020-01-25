@@ -6,13 +6,13 @@ class Api::V1::GithubController < ApplicationController
     client = git_client
     repo_count = client.repositories.count
     last_5_repo = client.repos({}, query: {type: 'owner', sort: 'desc'}).first(5).map{ |r| {name: r[:name], html_url: r[:html_url], description: r[:description] } }
-    organizations = client.organizations.map{ |org| {login: org[:login], url: org[:url], avatar_url: org[:avatar_url]} }
+    organizations = client.organizations.map{ |org| {login: org[:login], url: org[:url], avatar_url: org[:avatar_url], description: org[:description]} }
     render json: { repo_count: repo_count, last_5_repo: last_5_repo, organizations: organizations }
   end
 
   private
   
   def git_client
-    Octokit::Client.new(access_token: ENV['OAUTH_ACCESS_TOKEN'] || '350a63ff58fede610f9b7c43c7c73e37fe5d4ad2')
+    Octokit::Client.new(access_token: ENV['OAUTH_ACCESS_TOKEN'])
   end
 end
