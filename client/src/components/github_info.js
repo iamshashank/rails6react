@@ -114,7 +114,7 @@ class GithubInfo extends React.Component {
         dataLoaded: true,
         data: r
       }); 
-      console.log(r);
+      // console.log(r);
     }).catch(e => console.log(e))
   }
 
@@ -173,7 +173,7 @@ class GithubInfo extends React.Component {
   }
 
   generateRepoList(state, classes) {
-    console.log('called', state, classes);
+    // console.log('called', state, classes);
     if (state.dataLoaded){
       return state.data.last_5_repo.map((repo, index)=> this.repoListItem(repo, classes, index));
     } 
