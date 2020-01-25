@@ -72,7 +72,7 @@ const useStyles = theme => ({
   },
   rootList: {
     width: '100%',
-    maxHeight: 200,
+    maxHeight: 162,
     padding: 0,
     overflow: 'scroll'    
   },
