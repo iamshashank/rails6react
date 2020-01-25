@@ -37,12 +37,12 @@ const useStyles = makeStyles((theme) => ({
     }    
   }, 
   media: {
-    height: 200,
+    height: 150,
     [theme.breakpoints.up('md')]: { // eslint-disable-line no-useless-computed-key
-      height: 300
+      height: 150
     },
     [theme.breakpoints.up('lg')]: { // eslint-disable-line no-useless-computed-key
-      height: 300
+      height: 200
     }      
   },
   gitRepoInfo: {
@@ -50,31 +50,28 @@ const useStyles = makeStyles((theme) => ({
       height: 150
     },
     [theme.breakpoints.up('lg')]: { // eslint-disable-line no-useless-computed-key
-      height: 170
+      height: 200
     } 
   },
   large: {
     width: 100,
     height: 100,
     position: 'absolute',
-    top: 56,
-    left: 16,
+    top: 24,
+    left: 24,
     borderRadius: 6,
     [theme.breakpoints.up('sm')]: { // eslint-disable-line no-useless-computed-key
-      top: 30,
-      left: 30,
-      width: 140,
-      height: 140
+      width: 100,
+      height: 100
     },    
     [theme.breakpoints.up('md')]: { // eslint-disable-line no-useless-computed-key
-      top: 42,
-      left: 33,
-      width: 215,
-      height: 215
+      width: 150,
+      height: 150
     },
-    [theme.breakpoints.up('lg')]: { // eslint-disable-line no-useless-computed-key
-      top: 42
-    }       
+    // [theme.breakpoints.up('lg')]: { // eslint-disable-line no-useless-computed-key
+    //   height: 150,
+    //   width: 150
+    // }       
   },
   actionClass: {
     flexDirection: 'column',
