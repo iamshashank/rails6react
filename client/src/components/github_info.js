@@ -109,11 +109,13 @@ class GithubInfo extends React.Component {
     fetch('/api/v1/total_repos')
     .then(r => r.json())
     .then(r => {
-      this.setState({
-        value: 0,
-        dataLoaded: true,
-        data: r
-      }); 
+      if (r.status === true){
+        this.setState({
+          value: 0,
+          dataLoaded: true,
+          data: r
+        }); 
+      }
       // console.log(r);
     }).catch(e => console.log(e))
   }

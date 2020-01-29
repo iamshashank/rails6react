@@ -7,7 +7,7 @@ class Api::V1::GithubController < ApplicationController
     repo_count = client.repositories.count
     last_5_repo = client.repos({}, query: {type: 'owner', sort: 'desc'}).first(5).map{ |r| {name: r[:name], html_url: r[:html_url], description: r[:description] } }
     organizations = client.organizations.map{ |org| {login: org[:login], url: org[:url], avatar_url: org[:avatar_url], description: org[:description]} }
-    render json: { repo_count: repo_count, last_5_repo: last_5_repo, organizations: organizations }
+    render json: { status: true, repo_count: repo_count, last_5_repo: last_5_repo, organizations: organizations }
   end
 
   private
